@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BOGO Offer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      width: 360px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .title {
+      color: #f45b8b;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    .divider {
+      height: 2px;
+      background-color: #eee;
+      margin-bottom: 1.5rem;
+    }
+
+    .box {
+      border: 2px solid #ccc;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      text-align: left;
+      position: relative;
+      transition: border-color 0.3s, background-color 0.3s;
+    }
+
+    .box input[type="radio"] {
+      margin-right: 0.5rem;
+    }
+
+    .box.active {
+      border-color: #f45b8b;
+      background-color: #ffe6ef;
+    }
+
+    .discount {
+      color: #fff;
+      background: #f45b8b;
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: 0.5rem;
+    }
+
+    .popular {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: #f45b8b;
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .options {
+      display: none;
+      margin-top: 0.5rem;
+    }
+
+    .box.active .options {
+      display: block;
+    }
+
+    .option-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .option-row label {
+      flex: 1;
+    }
+
+    .option-row select {
+      flex: 1;
+      padding: 0.25rem;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0.5rem 0;
+    }
+
+    .free-delivery {
+      color: #f45b8b;
+      font-weight: bold;
+    }
+
+    .add-cart {
+      background: #f45b8b;
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      border-radius: 6px;
+      width: 100%;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .powered {
+      font-size: 0.7rem;
+      color: #888;
+      margin-top: 1rem;
+    }
+
+    .confirmation {
+      display: none;
+      color: green;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    .price-line {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-top: 0.3rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">YAY! It's BOGO</div>
+    <div class="divider"></div>
+
+    <div class="box" id="box1" data-price="10.00">
+      <input type="radio" name="unit" id="unit1" value="1" />
+      <label for="unit1">1 Unit <span class="discount">10% Off</span></label>
+      <div class="price-line">
+        <strong>$10.00 USD</strong>
+        <s>$24.00 USD</s>
+      </div>
+      <div class="options">
+        <div class="option-row">
+          <label>#1</label>
+          <select><option>S</option><option>M</option><option>L</option></select>
+          <select><option>Black</option><option>Red</option><option>Blue</option></select>
+        </div>
+      </div>
+    </div>
+
+    <div class="box" id="box2" data-price="18.00">
+      <div class="popular">MOST POPULAR</div>
+      <input type="radio" name="unit" id="unit2" value="2" />
+      <label for="unit2">2 Unit <span class="discount">20% Off</span></label>
+      <div class="price-line">
+        <strong>$18.00 USD</strong>
+        <s>$24.00 USD</s>
+      </div>
+      <div class="options">
+        <div class="option-row">
+          <label>#1</label>
+          <select><option>S</option><option>M</option><option>L</option></select>
+          <select><option>Black</option><option>Red</option><option>Blue</option></select>
+        </div>
+        <div class="option-row">
+          <label>#2</label>
+          <select><option>S</option><option>M</option><option>L</option></select>
+          <select><option>Colour</option><option>Red</option><option>Blue</option></select>
+        </div>
+      </div>
+    </div>
+
+    <div class="box" id="box3" data-price="24.00">
+      <input type="radio" name="unit" id="unit3" value="3" />
+      <label for="unit3">3 Unit <span class="discount">30% Off</span></label>
+      <div class="price-line">
+        <strong>$24.00 USD</strong>
+        <s>$24.00 USD</s>
+      </div>
+      <div class="options">
+        <div class="option-row">
+          <label>#1</label>
+          <select><option>S</option><option>M</option><option>L</option></select>
+          <select><option>Black</option><option>Red</option><option>Blue</option></select>
+        </div>
+        <div class="option-row">
+          <label>#2</label>
+          <select><option>S</option><option>M</option><option>L</option></select>
+          <select><option>Colour</option><option>Red</option><option>Blue</option></select>
+        </div>
+        <div class="option-row">
+          <label>#3</label>
+          <select><option>S</option><option>M</option><option>L</option></select>
+          <select><option>Colour</option><option>Red</option><option>Blue</option></select>
+        </div>
+      </div>
+    </div>
+
+    <div class="summary-row">
+      <div class="free-delivery">Free Delivery</div>
+      <div class="total">Total: <strong id="totalPrice">$18.00 USD</strong></div>
+    </div>
+
+    <button class="add-cart" onclick="showMessage()">+ Add to Cart</button>
+    <div class="confirmation" id="confirmation">Item successfully added to cart!</div>
+    <div class="powered">@ Powered by Pumper</div>
+  </div>
+
+  <script>
+    const boxes = document.querySelectorAll('.box');
+    const radios = document.querySelectorAll('input[type="radio"]');
+    const totalPriceElement = document.getElementById('totalPrice');
+
+    radios.forEach((radio, index) => {
+      radio.addEventListener('change', () => {
+        boxes.forEach(box => box.classList.remove('active'));
+        boxes[index].classList.add('active');
+        const price = boxes[index].getAttribute('data-price');
+        totalPriceElement.textContent = `$${price} USD`;
+      });
+    });
+
+    boxes[1].classList.add('active');
+
+    function showMessage() {
+      const confirmation = document.getElementById('confirmation');
+      confirmation.style.display = 'block';
+      setTimeout(() => {
+        confirmation.style.display = 'none';
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
